@@ -51,6 +51,6 @@ for i=1:length(files)
         fprintf('Accuracy: %0.2f\n', accuracy);
     end
         
-    save(['results/' im_name(1:end-4) '.mat'], 'X', 'Y', 'N', 'tt');
+    save(['results/' im_name(1:end-4) '_localization.mat'], 'X', 'Y', 'N', 'tt');
     
 end
