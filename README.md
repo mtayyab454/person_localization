@@ -7,7 +7,7 @@ This code takes the output of head detector in the form of mat file and returns 
 Resulting pixel locations are treated as candidate locations for the next step.
 
 **get_counts.m** takes the candidate locations as input and returns the actual locations of human heads and their count. Localization task is accomplished in following steps.
-* First, it fits a prespective aware head template at each candidate location.
-* All templates are scored locally and stored in order of increasing cost of fit.
-* It starts from an empty array, of size same as that of head probability map, and iteratively adds sorted prespective aware head templates to it. After each addition *global* cost of fit is computed and nearby locations that are geometrically implausible are suppressed. These steps are repeated until the cost keeps decreasing. Eventually the cost starts to rise and the loop is terminated at that point. 
+* *get_gaussians.m* fits a prespective aware head template at each candidate location.
+* *get_costs.m* scores all templates locally and stores them in order of increasing cost of fit.
+* *get_cost_surface.m* starts from an empty array, of size same as that of head probability map, and iteratively adds sorted prespective aware head templates to it. After each addition *global* cost of fit is computed and nearby locations that are geometrically implausible are suppressed. These steps are repeated until the cost keeps decreasing. Eventually the cost starts to rise and the loop is terminated at that point. 
 Resulting pixel locations are final head positions. 
